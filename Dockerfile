@@ -8,10 +8,12 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+ENV PORT 80
+
+EXPOSE $PORT
 
 # VOLUME [ "/app/feedback" ]
 
 CMD [ "npm", "start" ]
 
-#docker run -dp 80:80 --name feedback -v feedback:/app/feedback -v "C:/Users/User/Downloads/data-volumes-01-starting-setup:/app" -v app/node_modules feedback-app
+#docker run -dp 80:80 --name feedback -v feedback:/app/feedback -v "C:/Users/User/Downloads/data-volumes-01-starting-setup:/app:ro" -v app/node_modules feedback-app
